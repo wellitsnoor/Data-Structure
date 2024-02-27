@@ -2,48 +2,47 @@
 
 using namespace std;
 
-
+void print(int data[],  int n){
+    for(int i=0; i<n; i++){
+        cout<<data[i]<<endl;
+    }
+}
 
 void sort(int data[], int n){
-    for(int i=0;i<n-1;i++){
-        for(int j=0;j<n-i-1; j++){
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n-i-1; j++){
+
             if(data[j]>data[j+1]){
                 int temp;
                 temp = data[j];
                 data[j] = data[j+1];
                 data[j+1] = temp;
             }
+  
         }
     }
 }
 
-void print(int data[], int n){
-    for(int i=0;i<=n-1;i++){
-        cout<<data[i]<<endl;
-    }
-}
+int main(){
 
-void merge(int data[], int data1[], int n, int n1){
-    int total = n+n1;
+    int data[] = {11,12,13,14,15,16,17,18,19,20};
+    int n = sizeof(data)/sizeof(int);
+    
+    int data2[] = {1,2,3,4,5,6,7,8,9,10};
+    int n1 = sizeof(data2)/sizeof(int);
 
-    int data3[total-2];
+    int data3[n+n1];
 
-    for(int i=0;i<=n-1; i++){
+    for(int i=0; i<n; i++){
         data3[i] = data[i];
     }
-    for(int j=n-1; j<=total-2; j++){
-        data3[j] = data1[j];
+
+
+    for(int j=n; j<n+n1; j++){
+        data3[j] = data2[j-n];
     }
 
-    print(data3, total-2);
-}
+    sort(data3, n+n1);
 
-int main(){
-    int arr1[] = {51,52,53,54,55,56,57,58,59,60};
-    int arr1_n = sizeof(arr1)/sizeof(int);
-
-    int arr2[]= {1,2,3,4,5,6,7,8,9,10};
-    int arr2_n = sizeof(arr2)/sizeof(int);
-
-    merge(arr1, arr2, arr1_n, arr2_n);
+    print(data3, n+n1);
 }
