@@ -22,11 +22,13 @@ void display(int arr[], int n){
     }
 }
 
-int main(void)
+int main()
 {
     int arr[10] = {10,9,8,7,6,5,4,3,2,1};
     int n = sizeof(arr)/sizeof(int);
 
     bubbleSort(arr, n);
     display(arr, n);
+
+    return 0;
 }

@@ -31,5 +31,6 @@ int main()
 
     selectionSort(arr, n);
     display(arr, n);
+    
     return 0;
 }
